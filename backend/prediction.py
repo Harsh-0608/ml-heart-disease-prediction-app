@@ -19,7 +19,7 @@ logging.basicConfig(
 model=load(MODEL_PATH)
 logging.info("model loaded successfully")
 def predict(input_data: dict):
-    df=pd.DataFrame([dict])
+    df=pd.DataFrame([input_data])
     prediction=int(model.predict(df)[0])
     probability=float(model.predict_proba(df)[0][1])
     logging.info(f"Model provided a prediction: {prediction}, probability: {probability}")

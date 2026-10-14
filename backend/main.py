@@ -21,12 +21,12 @@ class HeartDiseaseInput(BaseModel):
 def health_check():
     return {"status":"ok"}
 @app.post("/predict-heart-disease")
-def predict_heart_disease(input_data):
+def predict_heart_disease(input_data:HeartDiseaseInput):
     input_dict=input_data.model_dump()
     result=predict(input_data=input_dict)
     return {
-        "prediction":result("prediction"),
-        "probability":result("probability"),
+        "prediction":result["prediction"],
+        "probability":result["probability"],
         "diagnosis":(
             "Heart disease is detected"
             if result["prediction"]==1
