@@ -8,6 +8,8 @@ load_dotenv()
 ROOT_PATH=Path(os.getenv("PROJECT_ROOT"))
 MODEL_PATH=ROOT_PATH/os.getenv("MODEL_DIR")/os.getenv("MODEL_NAME")
 LOG_PATH=ROOT_PATH/os.getenv("LOG_DIR")/os.getenv("LOG_NAME")
+LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
 logging.basicConfig(
             level=logging.INFO,
             format="%(asctime)s | %(levelname)s | %(message)s",
